@@ -29,8 +29,25 @@ class SLL():
             tmp = tmp.nextval
        tmp.nextval=NewNode
 
+    def insertPos(self,pos,newdata):
+        tmp=self.headval.nextval
+        for pos in range (pos-1):
+            tmp=tmp.nextval
+            if tmp is None:
+                print("The mentioned node is absent")
+                return
+        NewNode = NODE(newdata)
+        NewNode.nextval = tmp.nextval
+        tmp.nextval = NewNode
+
 list=SLL()
-list.headval=NODE(55)
-list.insertBegin(7)
-list.insertEnd(23)
+list.headval=NODE(10)
+list.insertBegin(1)
+list.insertEnd(20)
+list.insertEnd(30)
+list.insertEnd(40)
+list.insertEnd(50)
+list.traverseList()
+list.insertPos(3,35)
+print('After Inserting at Position')
 list.traverseList()
