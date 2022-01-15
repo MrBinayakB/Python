@@ -1,7 +1,4 @@
-#Creating Node
-from lib2to3.pytree import Node
-
-
+#Creating NODE
 class NODE():
     def __init__(self,dataval):
         self.dataval=dataval
@@ -32,8 +29,24 @@ class DLL():
         while(tmp.nextval):
             tmp=tmp.nextval
         tmp.nextval=NewNode
+# Inserting at position 
+    def insertPos(self,pos,newdata):
+        tmp=self.headval.nextval
+        for pos in range (pos-1):
+            tmp=tmp.nextval
+            if tmp is None:
+                print("The mentioned node is absent")
+                return
+        NewNode = NODE(newdata)
+        NewNode.nextval = tmp.nextval
+        tmp.nextval = NewNode
 L=DLL()
-L.headval=NODE(77)
-L.insertBegin(7)
-L.insertEnd(777)
+L.headval=NODE(7)
+L.insertBegin(0)
+L.insertEnd(17)
+L.insertEnd(27)
+L.insertEnd(37)
+L.TraverseList()
+print('After insertion at Position')
+L.insertPos(3,'Third Index')
 L.TraverseList()
