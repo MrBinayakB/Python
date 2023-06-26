@@ -23,3 +23,16 @@ class Solution(object):
             a=a*10+x%10
             x=x//10
         return a == num
+
+#Search Insert Position
+class Solution(object):
+    def searchInsert(self, nums, target):
+        target_pos=0
+        for index in range (len(nums)):
+            if nums[index]==target:
+                return index
+            elif nums[index]>target:
+                return target_pos
+            else:
+                target_pos+=1
+        return target_pos
