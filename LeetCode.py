@@ -57,3 +57,16 @@ class Solution(object):
         rows=[set() for x in range(9)]
         columns=[set() for x in range(9)]
         sqr=[[set() for x in range(3)] for y in range(3)]
+
+        for x in range(9):
+            for y in range(9):
+                value = board[x][y]
+                if value == '.':
+                    continue
+                if value in rows[x] or value in columns[y] or value in sqr[x//3][y//3]:
+                    return False
+
+                rows[x].add(value)
+                columns[y].add(value)
+                sqr[x//3][y//3].add(value)
+        return True
