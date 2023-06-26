@@ -50,3 +50,10 @@ class Solution(object):
                     return base[0:i]
 
         return base
+
+#Sudoku Validation   
+class Solution(object):
+    def isValidSudoku(self, board):
+        rows=[set() for x in range(9)]
+        columns=[set() for x in range(9)]
+        sqr=[[set() for x in range(3)] for y in range(3)]
